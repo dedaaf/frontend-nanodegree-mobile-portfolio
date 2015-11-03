@@ -1,3 +1,11 @@
+## The things I improved...
+
+On the index.html
+1. On the index.html page I reduced the file size with third party programs to reduce loading speed.
+2. I moved the files that were blocking the creation of the DOM to the bottom, load them asynchronously, or moved data to other files, for example, I inlined some of the css.
+------------------------------------------------------------------------------------------------------------------------------
+On the views section of this beautiful portfolio:
+
 In the main.js I changed the following functions and made the following adaptations:
 function rezise pizza:
 1. Removed the determineDX function altogether. Values were staying the same. Changes are now based on the values in the sizeSwitcher function.
