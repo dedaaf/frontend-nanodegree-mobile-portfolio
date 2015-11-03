@@ -428,13 +428,13 @@ var resizePizzas = function(size) {
     function changeSliderLabel(size) {
         switch (size) {
             case "1":
-                document.querySelector("#pizzaSize").innerHTML = "Small";
+                document.getElementsById('pizzaSize').innerHTML = "Small";
                 return;
             case "2":
-                document.querySelector("#pizzaSize").innerHTML = "Medium";
+               document.getElementsById('pizzaSize').innerHTML = "Medium";
                 return;
             case "3":
-                document.querySelector("#pizzaSize").innerHTML = "Large";
+                document.getElementsById('pizzaSize').innerHTML = "Large";
                 return;
             default:
                 console.log("bug in changeSliderLabel");
@@ -460,8 +460,8 @@ var resizePizzas = function(size) {
 
     // Iterates through pizza elements on the page and changes their widths
     function changePizzaSizes(size) {
-        var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
-        var pizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+        var windowwidth = document.getElementsById('randomPizzas').offsetWidth;
+        var pizzaContainer = document.getElementsByClassName('randomPizzaContainer');
         var sizeFactor;
         var newwidth;
 
@@ -602,7 +602,8 @@ document.addEventListener('DOMContentLoaded', function() {
         var elemStyle = (Math.floor(i / amountPizzaColumn) * spaceBetween) + 'px';
         elem.style.top = elemStyle;
 
-        document.querySelector("#movingPizzas1").appendChild(elem);
+        document.getElementsById('movingPizzas1').appendChild(elem);
+
     }
     updatePositions();
 });
