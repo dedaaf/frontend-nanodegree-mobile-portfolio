@@ -14,9 +14,16 @@ http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
 Creator:
 Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
+
+Edited by: David van Oudheusden, Junior Front-End Web Developer
+david *at* dedaaf *dot* com
+
 */
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
+
+"use strict";
+
 var pizzaIngredients = {};
 pizzaIngredients.meats = [
     "Pepperoni",
@@ -428,13 +435,13 @@ var resizePizzas = function(size) {
     function changeSliderLabel(size) {
         switch (size) {
             case "1":
-                document.getElementsById('pizzaSize').innerHTML = "Small";
+                document.getElementById('pizzaSize').innerHTML = "Small";
                 return;
             case "2":
-               document.getElementsById('pizzaSize').innerHTML = "Medium";
+               document.getElementById('pizzaSize').innerHTML = "Medium";
                 return;
             case "3":
-                document.getElementsById('pizzaSize').innerHTML = "Large";
+                document.getElementById('pizzaSize').innerHTML = "Large";
                 return;
             default:
                 console.log("bug in changeSliderLabel");
@@ -460,7 +467,7 @@ var resizePizzas = function(size) {
 
     // Iterates through pizza elements on the page and changes their widths
     function changePizzaSizes(size) {
-        var windowwidth = document.getElementsById('randomPizzas').offsetWidth;
+        var windowwidth = document.getElementById('randomPizzas').offsetWidth;
         var pizzaContainer = document.getElementsByClassName('randomPizzaContainer');
         var sizeFactor;
         var newwidth;
@@ -523,13 +530,13 @@ var totalPizzaSize;
 var windowWidth = window.innerWidth; //get window width
 var windowHeight = window.innerHeight; //get window Heigth
 
-function isScroll() { //check if there is a scroll
+function isScroll() { //check if the user is scrolling
     Top = (document.body.scrollTop / 1250); //generate number depending on the scroll position
     requestTick();
 
     totalPizza = document.querySelectorAll('.randomPizzaContainer');
     totalPizzaSize = totalPizza.length; /*get the size of the total*/
-    if ((totalPizzaSize % 2) === 0 && totalPizzaSize < 100) { // if
+    if ((totalPizzaSize % 2) === 0 && totalPizzaSize < 100) { // Everytime an equal amount of pizzas is generated we can print some more...
         generateRandomPizzas();
     }
 }
@@ -590,6 +597,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var amountPizzaRow = Math.round(windowHeight / 240); //calculate the amount of rows available for pizzas
     var amountPizzas = amountPizzaRow * amountPizzaColumn; //the total amount of pizzas for the screen
     var elem; //the pizza element outside the for loop, better for memory.
+    
+    var movingPizzas = document.getElementById('movingPizzas1'); //store the elements in a variable
 
     for (var i = 0; i < amountPizzas; i++) {
         elem = document.createElement('img');
@@ -602,7 +611,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var elemStyle = (Math.floor(i / amountPizzaColumn) * spaceBetween) + 'px';
         elem.style.top = elemStyle;
 
-        document.getElementsById('movingPizzas1').appendChild(elem);
+        movingPizzas.appendChild(elem);
 
     }
     updatePositions();
